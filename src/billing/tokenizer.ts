@@ -16,6 +16,7 @@ const getUsedTokens: GetUsedTokensI =
   function(response: ChatCompletionResponse | ErrorResponse): number {
 
     if ('error' in response) {
+      console.log("Got error response in 'getUsedTokens' function");
       return 0;
     }
 
