@@ -6,17 +6,17 @@ interface GetUsedTokensI {
   (response: ChatCompletionResponse | ErrorResponse): number;
 }
 
-function calculateTokens(message: string): number {
+export function calculateTokens(message: string): number {
   let tokens = encode(message);
   console.log(`Decoded message: [${message}] with tokens: ${tokens}`);
   return tokens.length;
 }
 
-const getUsedTokens: GetUsedTokensI =
+export const getUsedTokens: GetUsedTokensI =
   function(response: ChatCompletionResponse | ErrorResponse): number {
 
     if ('error' in response) {
-      console.log("Got error response in 'getUsedTokens' function");
+      console.log('Got error response in \'getUsedTokens\' function');
       return 0;
     }
 
